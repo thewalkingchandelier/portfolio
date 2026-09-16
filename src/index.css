@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Space+Grotesk:wght@300;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-cyber-yellow: #FFD700;
+  --color-neon-pink: #FF00FF;
+  --color-electric-teal: #00FFFF;
+  --color-punchy-orange: #FF4500;
+  --color-deep-night: #1A1A1A;
+}
+
+@layer base {
+  body {
+    @apply bg-deep-night text-white font-sans overflow-x-hidden;
+  }
+  
+  /* Custom Scrollbar for urban theme */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-deep-night;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyber-yellow border-4 border-deep-night;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neon-pink;
+  }
+}
+
+@layer components {
+  .jet-border {
+    @apply border-4 border-black border-r-8 border-b-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+  }
+  
+  .jet-button {
+    @apply relative inline-block px-8 py-4 bg-cyber-yellow text-black font-black uppercase tracking-tighter text-2xl skew-x-[-10deg] border-4 border-black hover:bg-white transition-all active:translate-y-1 active:translate-x-1 active:shadow-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)];
+  }
+
+  .skew-container {
+    @apply skew-x-[-5deg];
+  }
+
+  .unskew-content {
+    @apply skew-x-[5deg];
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
